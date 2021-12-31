@@ -38,20 +38,23 @@ optional arguments:
 ```commandline
 python3 gambler_value_iteration.py --plot
 ```
-<center>
-<img src="gambler_results_0.40.jpg"/>
-</center>
+<p align="center">
+  <img src="gambler_results_0.40.jpg"/>
+  https://user-images.githubusercontent.com/34735067/147829172-95322a14-d79e-41c0-8393-867c3990a000.mp4
+</p>
 
 ```commandline
  python3 gambler_value_iteration.py --plot --ph 0.25
 ```
-<center>
-<img src="gambler_results_0.25.jpg"/>
-</center>
+<p align="center">
+  <img src="gambler_results_0.25.jpg"/>
+  https://user-images.githubusercontent.com/34735067/147829195-bbe9c6ed-34cb-4667-ac31-4f264aa958d4.mp4
+</p>
 
 ```commandline
 python3 gambler_value_iteration.py --plot --ph 0.55
 ```
-<center>
-<img src="gambler_results_0.55.jpg"/>
-</center>
+<p align="center">
+  <img src="gambler_results_0.55.jpg"/>
+  https://user-images.githubusercontent.com/34735067/147829222-feedc699-f068-4480-ae01-64e9229de997.mp4
+</p>
