@@ -89,7 +89,7 @@ def policy_eval_animation(env, V_history):
     def update(frame):
         V = V_history[frame].reshape(env.height, env.width)
         ax.cla()
-        fig.suptitle(f"Iterative Policy Evaluation\nIteration: {frame+1}")
+        fig.suptitle(f"Iterative Policy Evaluation\nIteration: {frame}")
         sns.heatmap(ax=ax, data=colors, annot=V, vmin=0.0, vmax=1.0, cmap='Greys', cbar=False, linewidths=1, linecolor='black',
                            annot_kws={'fontsize': 22}, fmt='.2f')
 
