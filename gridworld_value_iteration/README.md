@@ -11,9 +11,9 @@ v(s) &= \underset{a}{max} \ q(s,a)\\
 \end{align} 
 -->
 
-<center>
+<p align="center">
 <img src="https://latex.codecogs.com/svg.image?\begin{align*}v(s)&space;&=&space;\underset{a}{max}&space;\&space;q(s,a)\\&space;&space;&space;&space;&space;&=&space;\underset{a}{max}&space;\&space;R_s^a&space;&plus;&space;\gamma&space;\sum_{s'}P_{ss'}^a&space;\&space;v(s')\end{align}&space;" title="\begin{align*}v(s) &= \underset{a}{max} \ q(s,a)\\ &= \underset{a}{max} \ R_s^a + \gamma \sum_{s'}P_{ss'}^a \ v(s')\end{align} " />
-</center>
+</p>
 
 This implementation of the algorithm uses synchronous backups to update the value function of each state:
 
@@ -24,9 +24,9 @@ v_k(s) &= \underset{a}{max} \ q_k(s,a)\\
 \end{align} 
 -->
 
-<center>
+<p align="center">
 <img src="https://latex.codecogs.com/svg.image?\begin{align*}v_k(s)&space;&=&space;\underset{a}{max}&space;\&space;q_k(s,a)\\&space;&space;&space;&space;&space;&=&space;\underset{a}{max}&space;\&space;R_s^a&space;&plus;&space;\gamma&space;\sum_{s'}P_{ss'}^a&space;\&space;v_{k-1}(s')\end{align}&space;" title="\begin{align*}v_k(s) &= \underset{a}{max} \ q_k(s,a)\\ &= \underset{a}{max} \ R_s^a + \gamma \sum_{s'}P_{ss'}^a \ v_{k-1}(s')\end{align} " />
-</center>
+</align>
 
 The algorithm converges to the state and action value functions of an optimal policy. After the convergence of the 
 algorithm, the corresponding deterministic optimal policy is constructed in the following way:
@@ -38,9 +38,9 @@ pi(a|s)= \left\{\begin{matrix}
 \end{matrix}\right.
 -->
 
-<center>
+<p align="center">
 <img src="https://latex.codecogs.com/svg.image?\pi(a|s)=&space;\left\{\begin{matrix}&space;&space;&space;1,&space;&&space;a&space;=&space;\underset{a'}{arg\&space;max}\&space;(q(s,a'))\\&space;&space;&space;0,&space;&&space;otherwise\\\end{matrix}\right." title="\pi(a|s)= \left\{\begin{matrix} 1, & a = \underset{a'}{arg\ max}\ (q(s,a'))\\ 0, & otherwise\\\end{matrix}\right." />
-</center>
+</p>
 
 
 This exercise is based on:
@@ -70,7 +70,7 @@ The following figures are the results of the value iteration algorithm for a gri
 ```commandline
 python3 gridworld_value_iteration.py --height 12 --width 20 --plot
 ````
-<center>
+<p align="center">
 <img src="gridworld_vi_animation.gif"/>
 <img src="gridworld_vi_policy.jpg"/>
-</center>
+</p>

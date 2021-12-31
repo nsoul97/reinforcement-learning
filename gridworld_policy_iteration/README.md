@@ -1,4 +1,4 @@
-<center><h1> Policy Iteration </h1></center>
+<h1> Policy Iteration </h1>
 
 This algorithm is used to find the optimal policy <img src="https://latex.codecogs.com/svg.image?\pi^*" title="\pi^*" />
 and its value function <img src="https://latex.codecogs.com/svg.image?V^*" title="V^*" />, when the environment dynamics
@@ -12,9 +12,9 @@ The iterative policy evaluation algorithm is based on the Bellman Expectation Eq
 v(s) = \sum_{a}\pi(a|s)(R_s^a + \gamma \sum_{s'}P_{ss'}^a \ v(s'))
 -->
 
-<center>
+<p align="center">
 <img src="https://latex.codecogs.com/svg.image?v(s)&space;=&space;\sum_{a}\pi(a|s)(R_s^a&space;&plus;&space;\gamma&space;\sum_{s'}P_{ss'}^a&space;\&space;v(s'))" title="v(s) = \sum_{a}\pi(a|s)(R_s^a + \gamma \sum_{s'}P_{ss'}^a \ v(s'))" />
-</center>
+</p>
 
 This implementation of the algorithm uses synchronous backups to update the value function of each state:
 
@@ -22,9 +22,9 @@ This implementation of the algorithm uses synchronous backups to update the valu
 v_k(s) = \sum_{a}\pi(a|s)(R_s^a + \gamma \sum_{s'}P_{ss'}^a \ v_{k-1}(s'))
 -->
 
-<center>
+<p align="center">
 <img src="https://latex.codecogs.com/svg.image?v_k(s)&space;=&space;\sum_{a}\pi(a|s)(R_s^a&space;&plus;&space;\gamma&space;\sum_{s'}P_{ss'}^a&space;\&space;v_{k-1}(s'))" title="v_k(s) = \sum_{a}\pi(a|s)(R_s^a + \gamma \sum_{s'}P_{ss'}^a \ v_{k-1}(s'))" />
-</center>
+</p>
 
 After the state value function of the current policy is evaluated iteratively using dynamic programming, we calculate the
 action value function (based on the Bellman Expectation Equation):
@@ -33,9 +33,9 @@ action value function (based on the Bellman Expectation Equation):
 q(s,a) = R_s^a + \gamma \sum_{s'}P_{ss'}^a \ v(s')
 -->
 
-<center>
+<p align="center">
 <img src="https://latex.codecogs.com/svg.image?q(s,a)&space;=&space;R_s^a&space;&plus;&space;\gamma&space;\sum_{s'}P_{ss'}^a&space;\&space;v(s')" title="q(s,a) = R_s^a + \gamma \sum_{s'}P_{ss'}^a \ v(s')" />
-</center>
+</p>
 
 Following that, the policy is improved greedily:
 
@@ -46,9 +46,9 @@ pi(a|s)= \left\{\begin{matrix}
 \end{matrix}\right.
 -->
 
-<center>
+<p align="center">
 <img src="https://latex.codecogs.com/svg.image?\pi(a|s)=&space;\left\{\begin{matrix}&space;&space;&space;1,&space;&&space;a&space;=&space;\underset{a'}{arg\&space;max}\&space;(q(s,a'))\\&space;&space;&space;0,&space;&&space;otherwise\\\end{matrix}\right." title="\pi(a|s)= \left\{\begin{matrix} 1, & a = \underset{a'}{arg\ max}\ (q(s,a'))\\ 0, & otherwise\\\end{matrix}\right." />
-</center>
+</p>
 
 Given that a policy may continually switch between two or more policies that are equally good, the termination criterion
 of policy iteration considers the sum of the state value function for two consecutive policies.
