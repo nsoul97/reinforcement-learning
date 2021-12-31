@@ -7,9 +7,9 @@ based on the Bellman Expectation Equation:
 v(s) = \sum_{a}\pi(a|s)(R_s^a + \gamma \sum_{s'}P_{ss'}^a \ v(s'))
 -->
 
-<center>
+<p align="center">
 <img src="https://latex.codecogs.com/svg.image?v(s)&space;=&space;\sum_{a}\pi(a|s)(R_s^a&space;&plus;&space;\gamma&space;\sum_{s'}P_{ss'}^a&space;\&space;v(s'))" title="v(s) = \sum_{a}\pi(a|s)(R_s^a + \gamma \sum_{s'}P_{ss'}^a \ v(s'))" />
-</center>
+</p>
 
 This implementation of the algorithm uses synchronous backups to update the value function of each state:
 
@@ -17,9 +17,9 @@ This implementation of the algorithm uses synchronous backups to update the valu
 v_k(s) = \sum_{a}\pi(a|s)(R_s^a + \gamma \sum_{s'}P_{ss'}^a \ v_{k-1}(s'))
 -->
 
-<center>
+<p align="center">
 <img src="https://latex.codecogs.com/svg.image?v_k(s)&space;=&space;\sum_{a}\pi(a|s)(R_s^a&space;&plus;&space;\gamma&space;\sum_{s'}P_{ss'}^a&space;\&space;v_{k-1}(s'))" title="v_k(s) = \sum_{a}\pi(a|s)(R_s^a + \gamma \sum_{s'}P_{ss'}^a \ v_{k-1}(s'))" />
-</center>
+</p>
 
 This exercise is based on:
 - Example 4.1 of Sutton's book "Reinforcement Learning: An Introduction (2nd Edition)"
@@ -50,6 +50,6 @@ python3 gridworld_iterative_policy_evaluation.py --plot
 ````
 
 
-<center>
+<p align="center">
 <img src="gridworld_ipe_animation.gif"/>
-</center>
+</p>
