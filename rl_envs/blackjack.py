@@ -1,6 +1,6 @@
 from gym import Env
 from gym.utils import seeding
-
+from gym.spaces import Discrete, Tuple
 
 class BlackjackEnv(Env):
 
@@ -12,33 +12,40 @@ class BlackjackEnv(Env):
     def __init__(self):
 
         self.np_random = None
-
         self.dealer_card = None
         self.player_sum = None
         self.usable_ace = None
-        self.player_tot_cards = None
         self.info = None
+
+        self.action_space = Discrete(2)
+        self.observation_space = Tuple((Discrete(10), Discrete(10), Discrete(2)))
 
         self._seed()
 
-    def reset(self):
-        self.player_tot_cards = 0
-        self.player_sum = 0
-        self.usable_ace = False
-        self.info = {'player': [], 'dealer': []}
+    def reset(self, s0=None):
+        if s0:
+            self.player_sum = 12 + s0[0]
+            self.dealer_card = 1 + s0[1]
+            self.usable_ace = s0[2] == 1
+            self.info = {'player': [(self.player_sum, self.usable_ace)], 'dealer': [self.dealer_card]}
 
-        while self.player_sum < 12:
-            c = self._draw_card()
-            self.info['player'].append(c)
-            self.player_tot_cards += 1
-            if c == 1 and self.player_sum + 11 <= 21:
-                self.player_sum += 11
-                self.usable_ace = True
-            else:
-                self.player_sum += c
+        else:
+            self.player_sum = 0
+            self.usable_ace = False
+            self.info = {'player': [], 'dealer': []}
 
-        self.dealer_card = self._draw_card()
-        self.info['dealer'].append(self.dealer_card)
+            while self.player_sum < 12:
+                c = self._draw_card()
+                self.info['player'].append(c)
+                if c == 1 and self.player_sum + 11 <= 21:
+                    self.player_sum += 11
+                    self.usable_ace = True
+                else:
+                    self.player_sum += c
+
+            self.dealer_card = self._draw_card()
+            self.info['dealer'].append(self.dealer_card)
+
         return self._get_obs()
 
     def step(self, action):
@@ -46,7 +53,6 @@ class BlackjackEnv(Env):
         if action:                                                  # The player hits.
             c = self._draw_card()
             self.info['player'].append(c)
-            self.player_tot_cards += 1
             if self.player_sum + c > 21 and self.usable_ace:        # The ace in the player's hand is no longer usable
                 self.player_sum += c - 10
                 self.usable_ace = False
@@ -64,12 +70,10 @@ class BlackjackEnv(Env):
             else:
                 dealer_ace = False
                 dealer_sum = self.dealer_card
-            dealer_tot_cards = 1
 
             while dealer_sum < 17:                                  # The dealer hits until the sum of his cards is >=17
                 c = self._draw_card()
                 self.info['dealer'].append(c)
-                dealer_tot_cards += 1
                 if c == 1 and dealer_sum + 11 <= 21:                # The dealer draws an ace that can be used as an 11
                     dealer_sum += 11
                     dealer_ace = True
@@ -85,15 +89,8 @@ class BlackjackEnv(Env):
                     return self._get_obs(), 1.0, True, self.info
                 elif self.player_sum < dealer_sum:                  # The dealer had a hand closer to 21 than the dealer
                     return self._get_obs(), -1.0, True, self.info
-                else:                                           # The sum of the dealer's and the player's hand is equal
-                    if self.player_sum < 21 or (self.player_tot_cards == 2 and dealer_tot_cards == 2):
-                        return self._get_obs(), 0.0, True, self.info   # The sum was less than 21 or both had a natural 21
-                    elif self.player_tot_cards == 2:
-                        return self._get_obs(), 1.0, True, self.info   # Only the player has a natural blackjack.
-                    elif dealer_tot_cards == 2:
-                        return self._get_obs(), -1.0, True, self.info  # Only the dealer has a natural blackjack.
-                    else:
-                        return self._get_obs(), 0.0, True, self.info   # Neither the player nor the dealer had a natural 21.
+                else:                                               # The sum of the dealer's and the player's hand is equal
+                    return self._get_obs(), 0.0, True, self.info    # The sum was less than 21 or both had a natural 21
 
     def _get_obs(self):
         return self.player_sum, self.dealer_card, self.usable_ace

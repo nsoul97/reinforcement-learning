@@ -89,8 +89,13 @@ def plot_blackjack_results(n_episodes, v_history):
     :param v_history: A list containing the state value function for each episode of MC
     """
 
-    STEP = 10000
-    INTERVAL = 500
+    # Animation Parameters for n=10,000
+    STEP = 1000
+    INTERVAL = 2000
+
+    # Animation Parameters for n=500,000
+    # STEP = 10000
+    # INTERVAL = 500
 
     fig1 = plt.figure(figsize=(12, 20))
     ax11 = fig1.add_subplot(211, projection='3d')
