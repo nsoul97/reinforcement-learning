@@ -179,8 +179,8 @@ def monte_carlo_es_control(env, n_episodes, gamma):
 
 def main():
     """
-    Read the command line arguments, create a Blackjack environment and evaluate the state value function of the
-    player's strategy without knowing the environment's dynamics. The dynamics are sampled using the Monte Carlo Control
+    Read the command line arguments, create a Blackjack environment and find the optimal strategy for the player
+    without knowing the environment's dynamics. The dynamics are sampled using the Monte Carlo Control
     with Exploring Starts algorithm. Optionally, plot two figures, one with the final state value function and another
     one with the optimal policy.
     """
