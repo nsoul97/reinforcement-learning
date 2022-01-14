@@ -14,6 +14,7 @@ repository. The exercises are implemented from scratch in [Python 3](https://www
 [OpenAI Gym](https://gym.openai.com/) and [PyTorch](https://pytorch.org/) ML framework.
 
 <h3>Algorithm Implementations</h3>
+
 - <b>Planning by Dynamic Programming</b>
     - [Iterative Policy Evaluation](gridworld_iterative_policy_evaluation)
     - [Policy Iteration](gridworld_policy_iteration)
