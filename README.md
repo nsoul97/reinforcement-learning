@@ -10,8 +10,9 @@ animations for each algorithm, including the figures that are presented in the R
 lectures of the RL :goat: David Silver.
 
 This repository contains, but is not limited to, the exercises that are presented in Danny Britz' s excellent 
-repository. The exercises are implemented from scratch in [Python 3](https://www.python.org/), using
-[OpenAI Gym](https://gym.openai.com/) and [PyTorch](https://pytorch.org/) ML framework.
+repository. The exercises are implemented from scratch in [Python 3](https://www.python.org/), using:
++ [OpenAI Gym](https://gym.openai.com/) for creating new or using existing RL environments, and
++ the [PyTorch ML framework](https://pytorch.org/) for Neural Networks Implementations.
 
 <h3>Algorithm Implementations</h3>
 
