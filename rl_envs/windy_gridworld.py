@@ -113,7 +113,7 @@ class WindyGridWorldEnv(Env):
 
         self.axes.cla()
         self.axes.set_title(f'Move# = {self.ep_moves}')
-        if self.last_action:
+        if self.last_action is not None:
             self.fig.suptitle(f'The agent moved: {self.MOVE_CHARS[self.last_action]}', fontsize=22)
         clrs = [[0.5 if (h, w) == self.TARGET_POSITION else 0 for w in range(self.WIDTH)] for h in range(self.HEIGHT)]
         annot = [['A' if (h, w) == self.curr_state else '' for w in range(self.WIDTH)] for h in range(self.HEIGHT)]
