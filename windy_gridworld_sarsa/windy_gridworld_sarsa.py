@@ -78,8 +78,7 @@ def plot_windy_gridworld_results(env, moves, n_episodes, final_policy, info):
     """
     INTERVAL = 1000
 
-    fig1, axes1 = plt.subplots(3, 1, figsize=(15, 12))
-    fig1.suptitle('SARSA Episode Statistics', fontsize=22)
+    fig1, axes1 = plt.subplots(3, 1, figsize=(30, 30), tight_layout=True)
 
     axes1[0].plot(range(1, n_episodes + 1), info['timesteps'])
     axes1[1].plot(range(1, n_episodes + 1), info['rewards'])
@@ -91,13 +90,18 @@ def plot_windy_gridworld_results(env, moves, n_episodes, final_policy, info):
     axes1[2].set_xlim(0, sum(info['timesteps']))
     axes1[2].set_ylim(0, n_episodes + 1)
 
-    axes1[0].set_xlabel('Episode Length', fontsize=18)
-    axes1[1].set_xlabel('Episode Reward', fontsize=18)
-    axes1[2].set_xlabel('Episode', fontsize=18)
+    axes1[0].set_title('Episode Length over Time', fontsize=20)
+    axes1[1].set_title('Episode Reward over Time', fontsize=20)
+    axes1[2].set_title('Episode per time step', fontsize=20)
 
-    axes1[0].set_ylabel('Episode', fontsize=18)
-    axes1[1].set_ylabel('Episode', fontsize=18)
-    axes1[2].set_ylabel('Time Steps', fontsize=18)
+    axes1[0].set_xlabel('Episode', fontsize=18)
+    axes1[1].set_xlabel('Episode', fontsize=18)
+    axes1[2].set_xlabel('Time Steps', fontsize=18)
+
+    axes1[0].set_ylabel('Episode Length', fontsize=18)
+    axes1[1].set_ylabel('Episode Reward', fontsize=18)
+    axes1[2].set_ylabel('Episode', fontsize=18)
+
 
     fig1.savefig(f'windy_gridworld_sarsa_stats_{moves}.jpg')
 

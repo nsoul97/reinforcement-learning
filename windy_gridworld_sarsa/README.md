@@ -104,7 +104,7 @@ This exercise is based on:
 - The SARSA algorithm example presented in "Lecture 5: Model Free Control" of David Silver's Reinforcement Learning 
   Course.
 
-Windy Gridworld is a standard gridworld with:
+Windy Gridworld is a 7x10 gridworld with:
 - start state (3, 0)
 - goal state (3, 7)
 
