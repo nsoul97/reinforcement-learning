@@ -26,3 +26,4 @@ repository. The exercises are implemented from scratch in [Python 3](https://www
     - [Monte Carlo Control with Exploring Starts](blackjack_mc_control_exploring_starts)
     - [SARSA (On-Policy TD Learning)](windy_gridworld_sarsa)
     - [Off-Policy Monte Carlo Control with Weighted Importance Sampling](blackjack_off_policy_mc_control)
+    - [Q-Learning (Off-Policy TD Learning)](cliff_gridworld_qlearning)
