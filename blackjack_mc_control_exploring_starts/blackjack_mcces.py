@@ -48,7 +48,8 @@ def parse_args():
                         help="The number of episodes to sample (DEFAULT=5000000)")
 
     parser.add_argument("--gamma", type=check_positive_float, default=1.0,
-                        help="The discount factor of the Monte Carlo Prediction algorithm. (DEFAULT=1.0)")
+                        help="The discount factor of the Monte Carlo Control with Exploring Starts algorithm. "
+                             "(DEFAULT=1.0)")
 
     parser.add_argument("--plot", action='store_true',
                         help="Plot and save as blackjack_mcces_v.jpg the state value function of the optimal policy "

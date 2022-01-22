@@ -91,7 +91,7 @@ usage: blackjack_mcces.py [--n_episodes N_EPISODES] [--gamma GAMMA] [--plot] [-h
 optional arguments:
   --n_episodes N_EPISODES
                         The number of episodes to sample (DEFAULT=5000000)
-  --gamma GAMMA         The discount factor of the Monte Carlo Prediction algorithm. (DEFAULT=1.0)
+  --gamma GAMMA         The discount factor of the Monte Carlo Control with Exploring Starts algorithm. (DEFAULT=1.0)
   --plot                Plot and save as blackjack_mcces_v.jpg the state value function of the optimal policy and as blackjack_mcces_policy.jpg the optimal policy. (DEFAULT=False)
   -h, --help            Show this help message and exit.
 ```
