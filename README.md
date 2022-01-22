@@ -24,6 +24,7 @@ repository. The exercises are implemented from scratch in [Python 3](https://www
     - [Monte Carlo Prediction](blackjack_mc_prediction)
 - <b>Model-Free Control</b>
     - [Monte Carlo Control with Exploring Starts](blackjack_mc_control_exploring_starts)
+    - [On-Policy Monte Carlo Control](easy21_on_policy_mc_control)
     - [SARSA (On-Policy TD Learning)](windy_gridworld_sarsa)
     - [Off-Policy Monte Carlo Control with Weighted Importance Sampling](blackjack_off_policy_mc_control)
     - [Q-Learning (Off-Policy TD Learning)](cliff_gridworld_qlearning)
